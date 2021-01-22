@@ -5,7 +5,7 @@ import React, { useEffect, useReducer } from 'react';
 
 function App() {
 
-  let defaultStartTime = 25 * 60 * 60
+  let defaultStartTime = 2//5 * 60 * 60
 
   const initialState = {
     timeLeft: defaultStartTime,
@@ -60,7 +60,7 @@ function App() {
 
       case "DecrementTimer":
         if (state.timeLeft === 0) {
-          //alert("Timer is up!") //Alert shows twice ... todo: fix so it only shows once
+          //alert("Timer is up!") //Alert shows twice ... moved into useEffect hook instead
           return {
             ...state,
             isTimerOn: false
@@ -144,6 +144,8 @@ function App() {
       const timer = setTimeout(() => dispatch({ type: "DecrementTimer" }), 1000)
       return () => clearTimeout(timer)
     }
+    else if (state.isTimerOn === false && state.timeLeft === 0)
+      alert("Timer is up!")
   }, [state.isTimerOn, state.timeLeft])
 
   //Controls
