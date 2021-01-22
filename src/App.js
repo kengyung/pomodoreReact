@@ -5,7 +5,7 @@ import React, { useEffect, useReducer } from 'react';
 
 function App() {
 
-  let defaultStartTime = 2//5 * 60 * 60
+  let defaultStartTime = 25 * 60 * 60
 
   const initialState = {
     timeLeft: defaultStartTime,
