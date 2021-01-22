@@ -1,12 +1,11 @@
 import './App.css';
 import React, { useEffect, useReducer } from 'react';
-import ReactDOM from 'react-dom';
 //import Controls from './components/Controls'
 /* import throttle from 'lodash/throttle'; */
 
 function App() {
 
-  let defaultStartTime = 3 //25 * 60 * 60
+  let defaultStartTime = 25 * 60 * 60
 
   const initialState = {
     timeLeft: defaultStartTime,
@@ -61,7 +60,7 @@ function App() {
 
       case "DecrementTimer":
         if (state.timeLeft === 0) {
-          alert("Timer is up!")
+          //alert("Timer is up!") //Alert shows twice ... todo: fix so it only shows once
           return {
             ...state,
             isTimerOn: false
